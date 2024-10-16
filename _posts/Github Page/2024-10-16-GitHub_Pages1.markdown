@@ -73,7 +73,7 @@ jekyll serve
 127.0.0.1:4000 或 localhost:4000
 
 ## 3.2 自定义 GitHub Pages
-1. 更换主题。GitHub Pages 提供了一些默认的 Jekyll 主题，你可以在 GitHub 仓库的 '**_config.yml**' 文件中设置主题。例如：'theme: jekyll-theme-cayman'，你也可以从第三方网站[**Jekyll主题列表**](http://jekyllthemes.org/)下载主题，并将其添加到项目中。
+1. 更换主题。GitHub Pages 提供了一些默认的 Jekyll 主题，你可以在 GitHub 仓库的 '**_config.yml**' 文件中设置主题。例如：'theme: jekyll-theme-cayman'，你也可以从第三方网站[**Jekyll主题列表**](https://jekyllthemes.org/)下载主题，并将其添加到项目中。
 
 ## 3.3 部署到GitHub Pages
 1. 'git add .'
@@ -84,7 +84,7 @@ jekyll serve
 # 4 编写文章
 所有的文章都是 _posts 目录下面，文章格式为 markdown 格式。
 
-直接从 _posts/ 目录下创建新的markdown文件 ，修改名字为 2016-10-16-article1.markdown ，注意：文章名的格式前面必须为 2016-10-16- ，日期可以修改，但必须为 年-月-日- 格式，后面的 article1 是整个文章的连接 URL，如果文章名为中文，那么文章的连接URL就会变成这样的，中文字符会经过转义：http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/， 所以建议文章名最好是英文的或者阿拉伯数字。 双击 2016-10-16-article1.markdown 打开。
+直接从 _posts/ 目录下创建新的markdown文件 ，修改名字为 2016-10-16-article1.markdown ，注意：文章名的格式前面必须为 2016-10-16- ，日期可以修改，但必须为 年-月-日- 格式，后面的 article1 是整个文章的连接 URL，如果文章名为中文，那么文章的连接URL就会变成这样的，中文字符会经过转义：https://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/， 所以建议文章名最好是英文的或者阿拉伯数字。 双击 2016-10-16-article1.markdown 打开。
 
 ```
 title:云端Docker搭建ABY库以及本地CLion远程开发
