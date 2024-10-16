@@ -26,7 +26,7 @@ GitHub Pages 是 GitHub 提供的免费静态网页托管服务，允许用户�
 <!-- 4. GitHub Pages 服务会自动生成并发布静态网站，你可以在几分钟后通过 `https://your-username.github.io` 访问。 -->
 
 # 3.使用 Jekyll 定制 GitHub Pages 网站
-Jekyll 是 GitHub Pages 支持的静态网站生成工具。它允许你使用模板生成 HTML 内容，极大地提高了页面创建的效率。[**Jekyll中文文档**](http://jekyll.bootcss.com/)、[**Jekyll英文文档**](https://jekyllrb.com/)、[**Jekyll主题列表**](http://jekyllthemes.org/)。
+Jekyll 是 GitHub Pages 支持的静态网站生成工具。它允许你使用模板生成 HTML 内容，极大地提高了页面创建的效率。[**Jekyll中文文档**](https://jekyll.bootcss.com/)、[**Jekyll英文文档**](https://jekyllrb.com/)、[**Jekyll主题列表**](https://jekyllthemes.org/)。
 
 ## 3.1 安装 Jekyll
 
