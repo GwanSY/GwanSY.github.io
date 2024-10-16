@@ -15,13 +15,13 @@ GitHub Pages 是 GitHub 提供的免费静态网页托管服务，允许用户�
 ### 2.1 创建 GitHub 仓库
 1. 登陆 GitHub 后，点击 **New Repository** 创建一个新的仓库。
 2. 仓库命名规则：  
-   - 个人主页的仓库名称必须是 `your-username.github.io`，例如 `GwanSY.github.io`。
+   - 个人主页的仓库名称必须是 'your-username.github.io'，例如 'GwanSY.github.io'。
    - 项目页面可以是任意名字，但要与项目相关。
 
 ### 2.2 激活 GitHub Pages
 1. 进入 GitHub 仓库的设置页面 (**Settings**)。
 2. 滑动至 **Pages** 部分。
-3. 在 **Source** 下拉菜单中，选择 `main` 分支，并保存（Save）。
+3. 在 **Source** 下拉菜单中，选择 'main' 分支，并保存（Save）。
 4. 本人使用的模板[**Chirpy Starter**](https://github.com/cotes2020/chirpy-starter/)点击按钮 'Use this template' > 'Create a new repository', 新仓库名为 'USERNAME.github.io', 其中 'USERNAME' 是你的GitHub username
 <!-- 4. GitHub Pages 服务会自动生成并发布静态网站，你可以在几分钟后通过 `https://your-username.github.io` 访问。 -->
 
