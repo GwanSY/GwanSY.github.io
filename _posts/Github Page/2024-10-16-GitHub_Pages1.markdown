@@ -25,10 +25,10 @@ GitHub Pages 是 GitHub 提供的免费静态网页托管服务，允许用户�
 4. 本人使用的模板[**Chirpy Starter**](https://github.com/cotes2020/chirpy-starter/)点击按钮 'Use this template' > 'Create a new repository', 新仓库名为 'USERNAME.github.io', 其中 'USERNAME' 是你的GitHub username
 <!-- 4. GitHub Pages 服务会自动生成并发布静态网站，你可以在几分钟后通过 `https://your-username.github.io` 访问。 -->
 
-# 3.使用 Jekyll 定制 GitHub Pages 网站
+## 3.使用 Jekyll 定制 GitHub Pages 网站
 Jekyll 是 GitHub Pages 支持的静态网站生成工具。它允许你使用模板生成 HTML 内容，极大地提高了页面创建的效率。[**Jekyll中文文档**](https://jekyll.bootcss.com/)、[**Jekyll英文文档**](https://jekyllrb.com/)、[**Jekyll主题列表**](https://jekyllthemes.org/)。
 
-## 3.1 安装 Jekyll
+### 3.1 安装 Jekyll
 
 在本地使用 Jekyll 进行开发需要安装 Git+Ruby+RubyGems。
 
@@ -72,16 +72,20 @@ jekyll serve
 9. 查看网站
 127.0.0.1:4000 或 localhost:4000
 
-## 3.2 自定义 GitHub Pages
+### 3.2 自定义 GitHub Pages
 1. 更换主题。GitHub Pages 提供了一些默认的 Jekyll 主题，你可以在 GitHub 仓库的 '**_config.yml**' 文件中设置主题。例如：'theme: jekyll-theme-cayman'，你也可以从第三方网站[**Jekyll主题列表**](https://jekyllthemes.org/)下载主题，并将其添加到项目中。
 
-## 3.3 部署到GitHub Pages
-1. 'git add .'
-2. 'git commit -m "first commit"'
-3. 'git push origin main'
+### 3.3 部署到GitHub Pages
+
+```
+1. git add .
+2. git commit -m "first commit"
+3. git push origin main
+```
+
 4. 检查你远端仓库已经跟你本地是否同步了，然后在浏览器里输入 '**username.github.io**' ，就可以访问你的博客了。
 
-# 4 编写文章
+## 4 编写文章
 所有的文章都是 _posts 目录下面，文章格式为 markdown 格式。
 
 直接从 _posts/ 目录下创建新的markdown文件 ，修改名字为 2016-10-16-article1.markdown ，注意：文章名的格式前面必须为 2016-10-16- ，日期可以修改，但必须为 年-月-日- 格式，后面的 article1 是整个文章的连接 URL，如果文章名为中文，那么文章的连接URL就会变成这样的，中文字符会经过转义：https://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/， 所以建议文章名最好是英文的或者阿拉伯数字。 双击 2016-10-16-article1.markdown 打开。
@@ -93,9 +97,9 @@ tags: [cyber engineering]
 pin: false
 ```
 
-title: 显示的文章名， 如：title: 我的第一篇文章
-date: 显示的文章发布日期，如：date: 2016-10-16
-categories: tag标签的分类，如：categories: 随笔
+title: 显示的文章名， 如：title: 我的第一篇文章<br>
+date: 显示的文章发布日期，如：date: 2016-10-16<br>
+categories: tag标签的分类，如：categories: 随笔<br>
 
 如果你对 markdown 语法不熟悉的话，可以看看[**作业部落的教程**](https://www.zybuluo.com/)
 
