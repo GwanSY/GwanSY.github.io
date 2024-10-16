@@ -39,13 +39,13 @@ Jekyll 是 GitHub Pages 支持的静态网站生成工具。它允许你使用�
 4. 切换镜像源
 ```
 gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
-
-gem sources -l
 ```
+gem sources -l
+
 5. 安装jekyll
 ```
 gem install jekyll
-```
+
 6. 安装jekyll-paginate
 ```
 gem install jekyll-paginate
@@ -55,11 +55,11 @@ jekyll -v #验证
 7. 安装 Bundler
 ```
 gem install bundler 
-```
+
 8. 本地启动服务
 ```
 jekyll serve 
-```
+
 9. 查看网站
 127.0.0.1:4000 或 localhost:4000
 
@@ -82,7 +82,7 @@ title:云端Docker搭建ABY库以及本地CLion远程开发
 date: 2023-04-03 16:30:00 +0800categories:[Cyber Engineering]
 tags: [cyber engineering]
 pin: false
-```
+
 
 title: 显示的文章名， 如：title: 我的第一篇文章
 date: 显示的文章发布日期，如：date: 2016-10-16
