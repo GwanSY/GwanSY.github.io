@@ -79,7 +79,7 @@ jekyll serve
 1. 'git add .'
 2. 'git commit -m "first commit"'
 3. 'git push origin main'
-4. 检查你远端仓库已经跟你本地是否同步了，然后你在浏览器里输入 '**username.github.io**' ，就可以访问你的博客了。
+4. 检查你远端仓库已经跟你本地是否同步了，然后在浏览器里输入 '**username.github.io**' ，就可以访问你的博客了。
 
 # 4 编写文章
 所有的文章都是 _posts 目录下面，文章格式为 markdown 格式。
