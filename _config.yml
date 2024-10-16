@@ -16,7 +16,7 @@ timezone:
 
 title: GwanSY # the main title
 
-tagline: A text-focused Jekyll theme # it will display as the sub-title
+tagline: Downwards id the only way backwards. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Downwards id the only way backwards.
@@ -73,7 +73,7 @@ theme_mode: # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:assets/my_avatar.jpg
+avatar: assets/my_avatar.jpg
 
 # boolean type, the global switch for TOC in posts.
 toc: true
