@@ -16,10 +16,10 @@ timezone:
 
 title: GwanSY # the main title
 
-tagline: Downwards id the only way backwards. # it will display as the sub-title
+tagline: Downwards is the only way backwards. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Downwards id the only way backwards.
+  Downwards is the only way backwards.
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
