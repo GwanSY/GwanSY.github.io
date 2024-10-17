@@ -135,7 +135,8 @@ tail_includes:
 
     {% include post-sharing.html %}
 
-  </div><!-- .post-tail-bottom -->
+  </div>
+  <!-- .post-tail-bottom -->
 
   <div id="gitalk-container"></div>
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
@@ -148,16 +149,16 @@ tail_includes:
   <script src="/js/md5.min.js"></script>
   <script type="text/javascript">
     var gitalk = new Gitalk({
-      clientID: '2cd80a8a10e722b27de8',
-      clientSecret: '567743e9b35102c642bdad3def4d4c5d16dd4bab',
-      repo: 'Country-If.github.io',
-      owner: 'Country-If',
-      admin: ['Country-If'],
+      clientID: 'Ov23liHBTqIjM5zZTr1I',
+      clientSecret: '8a44a8168b798c62e90db5de40a8ff108c69da95',
+      repo: 'GwanSY.github.io',
+      owner: 'GwanSY',
+      admin: ['GwanSY'],
       id: md5(location.href.match('/(?<=posts/)(.*)(?=/)/')[1]),
       language: 'en',
       perPage: 10,
     });
     gitalk.render('gitalk-container');
   </script>
-
+  
 </div><!-- div.post-tail-wrapper -->

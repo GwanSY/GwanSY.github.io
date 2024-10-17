@@ -25,8 +25,8 @@ GitHub Pages 是 GitHub 提供的免费静态网页托管服务，允许用户�
 ### 2.2 激活 GitHub Pages
 
 1. 进入 GitHub 仓库的设置页面 (**Settings**)。
-2. 滑动至 **Pages** 部分。
-3. 在 **Source** 下拉菜单中，选择 `main` 分支，并保存（Save）。
+2. 滑动至 <kbd>Pages</kbd> 部分。
+3. 在 <kbd>Source</kbd> 下拉菜单中，选择 `main` 分支，并保存（Save）。
 4. 本人使用的模板 [**Chirpy Starter**](https://github.com/cotes2020/chirpy-starter/)：
    点击按钮 'Use this template' > 'Create a new repository'，新仓库名为 `USERNAME.github.io`，其中 `USERNAME` 是你的 GitHub username。
 
@@ -41,41 +41,31 @@ Jekyll 是 GitHub Pages 支持的静态网站生成工具。它允许你使用�
 详细安装教程可以参考以下步骤：
 
 1. 下载 [**Ruby**](https://rubyinstaller.org/downloads/)，下载 [**RubyGems**](https://rubygems.org/pages/download)。
-1. Ruby 和 RubyGems 安装教程：[**安装教程**](https://blog.csdn.net/qq_32454347/article/details/87968706)。
-1. 在命令行中进入仓库目录。
-1. 切换镜像源：
-
-    ```bash
-    gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
-    gem sources -l
-    ```
-
-1. 安装 jekyll：
-
-    ```bash
-    gem install jekyll
-    ```
-
-1. 安装 jekyll-paginate：
-
-    ```bash
-    gem install jekyll-paginate
-    jekyll -v <!-- 验证 -->
-    ```
-
-1. 安装 Bundler：
-
-    ```bash
-    gem install bundler
-    ```
-
-1. 本地启动服务：
-
-    ```bash
-    jekyll server
-    ```
-
-1. 查看网站：  
+2. Ruby 和 RubyGems 安装教程：[**安装教程**](https://blog.csdn.net/qq_32454347/article/details/87968706)。
+3. 在命令行中进入仓库目录。
+4. 切换镜像源：
+```bash
+gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+gem sources -l
+```
+5. 安装 jekyll：
+```bash
+gem install jekyll
+```
+6. 安装 jekyll-paginate：
+```bash
+gem install jekyll-paginate
+jekyll -v <!-- 验证 -->
+```
+7. 安装 Bundler：
+```bash
+gem install bundler
+ ```
+8. 本地启动服务：
+```bash
+jekyll server
+```
+9. 查看网站：  
    打开浏览器并访问 `127.0.0.1:4000` 或 `localhost:4000`。
 
 ### 3.2 自定义 GitHub Pages
@@ -100,7 +90,7 @@ Jekyll 是 GitHub Pages 支持的静态网站生成工具。它允许你使用�
 title:云端Docker搭建ABY库以及本地CLion远程开发
 date: 2023-04-03 16:30:00 +0800
 categories:[Cyber Engineering]
-tags: [Cyber Engineering]
+tags:[Cyber Engineering]
 pin: false
 ---
 ```
@@ -113,8 +103,11 @@ pin: false
 
 # 参考资料
 > [Github Page Configuration](https://country-if.github.io/posts/github-page-configuration/)
+>
 > [Jekyll搭建个人博客](https://www.jianshu.com/p/245aabdace05)
+>
 > [个人博客网站搭建](https://zhuanlan.zhihu.com/p/87225594)
+>
 > [搭建个人博客(Jekyll+Github)](https://blog.csdn.net/m0_46578941/article/details/126489793)
 
 
