@@ -78,12 +78,12 @@ avatar: assets/my_avatar.jpg
 # boolean type, the global switch for TOC in posts.
 toc: true
 
-# gitalk:
-#   enable: true
-#   github_id:
-#   repo:
-#   client_id:
-#   client_secret:
+gitalk:
+  enable: true
+  github_id: GwanSY
+  repo: GwanSY.github.io
+  client_id: Ov23liHBTqIjM5zZTr1I
+  client_secret: 8a44a8168b798c62e90db5de40a8ff108c69da95
 
 comments:
   active: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
