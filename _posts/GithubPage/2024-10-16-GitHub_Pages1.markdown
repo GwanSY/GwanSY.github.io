@@ -41,32 +41,42 @@ Jekyll 是 GitHub Pages 支持的静态网站生成工具。它允许你使用�
 详细安装教程可以参考以下步骤：
 
 1. 下载 [**Ruby**](https://rubyinstaller.org/downloads/)，下载 [**RubyGems**](https://rubygems.org/pages/download)。
-2. Ruby 和 RubyGems 安装教程：[**安装教程**](https://blog.csdn.net/qq_32454347/article/details/87968706)。
-3. 在命令行中进入仓库目录。
-4. 切换镜像源：
-```bash
-gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
-gem sources -l
-```
-5. 安装jekyll
-```bash
-gem install jekyll
-```
-6. 安装jekyll-paginate
-```bash
-gem install jekyll-paginate
-jekyll -v <!--  验证 -->
-```
-7. 安装 Bundler
-```bash
-gem install bundler 
-```
-8. 本地启动服务
-```bash
-jekyll serve 
-```
-9. 查看网站
-127.0.0.1:4000 或 localhost:4000
+1. Ruby 和 RubyGems 安装教程：[**安装教程**](https://blog.csdn.net/qq_32454347/article/details/87968706)。
+1. 在命令行中进入仓库目录。
+1. 切换镜像源：
+
+    ```bash
+    gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+    gem sources -l
+    ```
+
+1. 安装 jekyll：
+
+    ```bash
+    gem install jekyll
+    ```
+
+1. 安装 jekyll-paginate：
+
+    ```bash
+    gem install jekyll-paginate
+    jekyll -v <!-- 验证 -->
+    ```
+
+1. 安装 Bundler：
+
+    ```bash
+    gem install bundler
+    ```
+
+1. 本地启动服务：
+
+    ```bash
+    jekyll server
+    ```
+
+1. 查看网站：  
+   打开浏览器并访问 `127.0.0.1:4000` 或 `localhost:4000`。
 
 ### 3.2 自定义 GitHub Pages
 更换主题。GitHub Pages 提供了一些默认的 Jekyll 主题，你可以在 GitHub 仓库的 '**_config.yml**' 文件中设置主题。例如：'theme: jekyll-theme-cayman'，你也可以从第三方网站[**Jekyll主题列表**](https://jekyllthemes.org/)下载主题，并将其添加到项目中。
@@ -74,7 +84,7 @@ jekyll serve
 ### 3.3 部署到GitHub Pages
 
 ```bash
-1. git add .
+1. git add "具体文件" 
 2. git commit -m "first commit"
 3. git push origin main
 ```
@@ -88,8 +98,9 @@ jekyll serve
 ```bash
 ---
 title:云端Docker搭建ABY库以及本地CLion远程开发
-date: 2023-04-03 16:30:00 +0800categories:[Cyber Engineering]
-tags: [cyber engineering]
+date: 2023-04-03 16:30:00 +0800
+categories:[Cyber Engineering]
+tags: [Cyber Engineering]
 pin: false
 ---
 ```
@@ -101,9 +112,9 @@ pin: false
 如果你对 markdown 语法不熟悉的话，可以看看[**作业部落的教程**](https://www.zybuluo.com/)
 
 # 参考资料
-[Github Page Configuration](https://country-if.github.io/posts/github-page-configuration/)<br>
-[Jekyll搭建个人博客](https://www.jianshu.com/p/245aabdace05)<br>
-[个人博客网站搭建](https://zhuanlan.zhihu.com/p/87225594)<br>
-[搭建个人博客(Jekyll+Github)](https://blog.csdn.net/m0_46578941/article/details/126489793)
+> [Github Page Configuration](https://country-if.github.io/posts/github-page-configuration/)
+> [Jekyll搭建个人博客](https://www.jianshu.com/p/245aabdace05)
+> [个人博客网站搭建](https://zhuanlan.zhihu.com/p/87225594)
+> [搭建个人博客(Jekyll+Github)](https://blog.csdn.net/m0_46578941/article/details/126489793)
 
 
