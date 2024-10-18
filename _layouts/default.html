@@ -1,0 +1,111 @@
+---
+layout: compress
+# Default layout
+---
+
+<!DOCTYPE html>
+
+
+{% include assets-origin.html %}
+
+{% capture prefer_mode %}
+{% if site.theme_mode %}
+data-mode="{{ site.theme_mode }}"
+{% endif %}
+{% endcapture %}
+
+<!-- `site.alt_lang` can specify a language different from the UI -->
+<html lang="{{ site.alt_lang | default: site.lang }}" {{ prefer_mode }}>
+
+{% include head.html %}
+
+<body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+
+
+{% include sidebar.html %}
+
+{% include topbar.html %}
+
+<div id="main-wrapper" class="d-flex justify-content-center">
+  <div id="main" class="container pl-xl-4 pr-xl-4">
+    {{ content }}
+  </div>
+
+  {% include search-results.html %}
+
+</div> <!-- #main-wrapper -->
+
+{% include footer.html %}
+
+{% if page.mermaid %}
+{% include mermaid.html %}
+{% endif %}
+
+<div id="mask"></div>
+
+<a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+{% if site.pwa.enabled %}
+<div id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-animation="true"
+     data-autohide="false">
+  <div class="toast-header">
+    <button type="button" class="ml-2 ml-auto close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body text-center pt-0">
+    <p class="pl-2 pr-2 mb-3">{{ site.data.locales[site.lang].notification.update_found }}</p>
+    <button type="button" class="btn btn-primary" aria-label="Update">
+      {{ site.data.locales[site.lang].notification.update }}
+    </button>
+  </div>
+</div>
+{% endif %}
+
+{% include search-loader.html %}
+
+{% include js-selector.html %}
+
+{% include google-analytics.html %}
+
+<!--<script type="text/javascript" src="/js/snow_background.js"></script>-->
+<!--<script type="text/javascript" src="/js/balls_onClick.js"></script>-->
+
+</body>
+
+<!--<script type="text/javascript" charset="utf-8" src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>-->
+<!--<script type="text/javascript">-->
+<!--  L2Dwidget-->
+<!--    .on('*', (name) => {-->
+<!--      console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')-->
+<!--    })-->
+<!--    .init({-->
+<!--      "model": {-->
+<!--        jsonPath: "/L2DWidgets/live2d-widget-model-shizuku/assets/shizuku.model.json",-->
+<!--        "scale": 0.8-->
+<!--      },-->
+<!--      display: {-->
+<!--        "position": "right",-->
+<!--        "width": 200,-->
+<!--        "height": 280,-->
+<!--        "vOffset": -25,-->
+<!--        "hOffset": 20-->
+<!--      },-->
+<!--      mobile: {-->
+<!--        "show": true,-->
+<!--        "scale": 0.5-->
+<!--      },-->
+<!--      dialog: {-->
+<!--        enable: true,-->
+<!--        script: {-->
+<!--          'every idle 10s': '$hitokoto$',-->
+<!--          'tap body': '哎呀！别碰我！[○･｀Д´･ ○]',-->
+<!--          'tap face': '害羞 ヾ^_^♪'-->
+<!--        }-->
+<!--      }-->
+<!--    });-->
+<!--</script>-->
+
+</html>

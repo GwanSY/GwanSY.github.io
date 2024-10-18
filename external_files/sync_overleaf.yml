@@ -1,0 +1,34 @@
+name: Overleaf Sync with Git
+on:
+  schedule:
+    - cron: "0 0/4 * * *"
+  workflow_dispatch:
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Fetch the latest version from overleaf server
+      uses: subhamx/overleaf_sync_with_git@master
+      with:
+        OVERLEAF_PROJECT_ID: ${{ secrets.OVERLEAF_PROJECT_ID }}
+        OVERLEAF_COOKIE: ${{ secrets.OVERLEAF_COOKIE }}
+
+    - name: Upload to Project Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: project
+        path: ./artifacts/
+
+    - uses: actions/checkout@v2
+      with:
+        path: repo/
+    
+    - run: |
+        cd repo/
+        cp -r ../artifacts/* ./
+        git config user.name "overleaf Sync Bot"
+        git config user.email "actions@github.com"
+        git add .
+        if [[ $(git diff HEAD --stat) == '' ]]; then (echo 'Working tree is clean') 
+        else (git commit -m "Sync with overleaf remote"  && git push) fi
