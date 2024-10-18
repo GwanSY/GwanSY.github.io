@@ -1,0 +1,39 @@
+name: Merge Files from Output to Main
+
+on:
+  schedule:
+    - cron: "16 16 * * *"  # UTC+8: 0:16
+  workflow_dispatch:
+
+jobs:
+  copy_files:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Main Branch
+      uses: actions/checkout@v2
+      with:
+        ref: main
+        path: main
+
+    - name: Checkout Output Branch
+      uses: actions/checkout@v2
+      with:
+        ref: output
+        path: output
+
+    - name: Copy Files to Main Branch
+      run: |
+        mkdir -p main/assets/svg
+        cp -r output/* main/assets/svg/
+
+    - name: Commit and Push Changes to Main Branch
+      run: |
+        cd main
+        git config user.name "Actions Bot"
+        git config user.email "actions@github.com"
+        git add assets/svg/
+        git commit -m "Automated copy of files from output to main" || true
+        git push origin HEAD:main || true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用GitHub提供的token进行身份验证
