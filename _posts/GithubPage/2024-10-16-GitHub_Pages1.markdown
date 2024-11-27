@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GitHub Pages 学习1——搭建及配置"
-date: 2016-10-16 11:29:08 +0800
+date: 2024-10-16 11:29:08 +0800
 categories: GitHubPage
 ---
 
@@ -18,7 +18,7 @@ GitHub Pages 是 GitHub 提供的免费静态网页托管服务，允许用户�
 ### 2.1 创建 GitHub 仓库
 
 1. 登陆 GitHub 后，点击 **New Repository** 创建一个新的仓库。
-2. 仓库命名规则：  
+2. 仓库命名规则：
    - 个人主页的仓库名称必须是 `your-username.github.io`，例如 `GwanSY.github.io`。
    - 项目页面可以是任意名字，但要与项目相关。
 
@@ -65,7 +65,7 @@ gem install bundler
 ```bash
 jekyll server
 ```
-9. 查看网站：  
+9. 查看网站：
    打开浏览器并访问 `127.0.0.1:4000` 或 `localhost:4000`。
 
 ### 3.2 自定义 GitHub Pages
@@ -74,7 +74,7 @@ jekyll server
 ### 3.3 部署到GitHub Pages
 
 ```bash
-1. git add "具体文件" 
+1. git add "具体文件"
 2. git commit -m "first commit"
 3. git push origin main
 ```
