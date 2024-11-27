@@ -60,14 +60,12 @@ main() {
   JEKYLL_ENV=production bundle exec jekyll b \
     -d "$SITE_DIR$_baseurl" -c "$_config"
 
-# Define your site directory (adjust if necessary)
-SITE_DIR="_site"
-
-# Run htmlproofer with appropriate options
-bundle exec htmlproofer "$SITE_DIR" \
-  --disable-external \
-  --allow-hash-href \
-  --check-html
+  # test
+  bundle exec htmlproofer "$SITE_DIR" \
+    --disable-external \
+    --check-html \
+    --allow_hash_href
+}
 
 while (($#)); do
   opt="$1"
