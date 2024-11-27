@@ -8,6 +8,9 @@ categories: Algorithm
 1. 算法是将输入转换为输出的一系列计算步骤。
 2. 算法5个重要特性：有穷性、确定性、可行性、输入、输出。
 3. 运行时间对比表
+4. `评估算法的指标：时间复杂度，空间复杂度，代码量，可读性`
+5. `讨论算法复杂度的方面：best case,average case,worst case`
+
 ```bash
 lg(n) < sqrt(n) < n < n*lg(n) < n^2 < n^3 < 2^n < n!
 ```
