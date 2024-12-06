@@ -236,5 +236,3 @@ public class Power {
 }
 ```
 ## Fibonacci numbers 斐波那契数
-
- 
