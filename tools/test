@@ -62,9 +62,9 @@ main() {
 
   # test
   bundle exec htmlproofer "$SITE_DIR" \
-    --disable-external \
-    --check-html \
-    --allow_hash_href
+  --disable-external \
+  --allow_hash_href
+# --check-html (deprecated)
 }
 
 while (($#)); do
