@@ -24,6 +24,12 @@ jobs:
       with:
         path: repo/
     
+    - name: Download Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: project
+        path: artifacts/
+
     - run: |
         cd repo/
         cp -r ../artifacts/* ./
