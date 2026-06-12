@@ -45,7 +45,7 @@ TCP    127.0.0.1:7897    0.0.0.0:0    LISTENING
 打开 PowerShell：
 
 ```powershell
-curl.exe -x http://127.0.0.1:7897 https://api.openai.com/v1/models
+curl -x http://127.0.0.1:7897 https://api.openai.com/v1/models
 ```
 
 如果返回 JSON 数据或 OpenAI 错误信息：
@@ -355,7 +355,7 @@ echo %HTTPS_PROXY%
 测试 OpenAI 连通性：
 
 ```powershell
-curl.exe -x http://127.0.0.1:7897 https://api.openai.com/v1/models
+curl -x http://127.0.0.1:7897 https://api.openai.com/v1/models
 ```
 
 检查代理端口：
