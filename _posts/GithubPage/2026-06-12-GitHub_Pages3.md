@@ -27,13 +27,13 @@ categories: Other
 打开 CMD：
 
 ```cmd
-netstat -ano | findstr 7891
+netstat -ano | findstr 7897
 ```
 
 如果看到类似输出：
 
 ```text
-TCP    127.0.0.1:7891    0.0.0.0:0    LISTENING
+TCP    127.0.0.1:7897    0.0.0.0:0    LISTENING
 ```
 
 说明代理正常运行。
@@ -45,7 +45,7 @@ TCP    127.0.0.1:7891    0.0.0.0:0    LISTENING
 打开 PowerShell：
 
 ```powershell
-curl.exe -x http://127.0.0.1:7891 https://api.openai.com/v1/models
+curl.exe -x http://127.0.0.1:7897 https://api.openai.com/v1/models
 ```
 
 如果返回 JSON 数据或 OpenAI 错误信息：
@@ -99,7 +99,7 @@ HTTP_PROXY
 变量值：
 
 ```text
-http://127.0.0.1:7891
+http://127.0.0.1:7897
 ```
 
 ### HTTPS_PROXY
@@ -113,7 +113,7 @@ HTTPS_PROXY
 变量值：
 
 ```text
-http://127.0.0.1:7891
+http://127.0.0.1:7897
 ```
 
 ### ALL_PROXY
@@ -127,7 +127,7 @@ ALL_PROXY
 变量值：
 
 ```text
-http://127.0.0.1:7891
+http://127.0.0.1:7897
 ```
 
 保存后重新打开 CMD。
@@ -141,7 +141,7 @@ echo %HTTP_PROXY%
 应输出：
 
 ```text
-http://127.0.0.1:7891
+http://127.0.0.1:7897
 ```
 
 ---
@@ -165,7 +165,7 @@ proxy
 ### Http: Proxy
 
 ```text
-http://127.0.0.1:7891
+http://127.0.0.1:7897
 ```
 
 ### Http: Proxy Support
@@ -208,7 +208,7 @@ Preferences: Open User Settings (JSON)
 
 ```json
 {
-    "http.proxy": "http://127.0.0.1:7891",
+    "http.proxy": "http://127.0.0.1:7897",
     "http.proxySupport": "on",
     "http.systemCertificates": true,
     "http.proxyStrictSSL": false
@@ -297,7 +297,7 @@ Codex
 ### ECONNREFUSED
 
 ```text
-connect ECONNREFUSED 127.0.0.1:7891
+connect ECONNREFUSED 127.0.0.1:7897
 ```
 
 原因：
@@ -355,13 +355,13 @@ echo %HTTPS_PROXY%
 测试 OpenAI 连通性：
 
 ```powershell
-curl.exe -x http://127.0.0.1:7891 https://api.openai.com/v1/models
+curl.exe -x http://127.0.0.1:7897 https://api.openai.com/v1/models
 ```
 
 检查代理端口：
 
 ```cmd
-netstat -ano | findstr 7891
+netstat -ano | findstr 7897
 ```
 
 ---
@@ -372,7 +372,7 @@ VS Code `settings.json`：
 
 ```json
 {
-    "http.proxy": "http://127.0.0.1:7891",
+    "http.proxy": "http://127.0.0.1:7897",
     "http.proxySupport": "on",
     "http.systemCertificates": true,
     "http.proxyStrictSSL": false
