@@ -1,150 +1,390 @@
 ---
 layout: post
-title: "Docker 容器迁移与环境重构全流程（含CUDA与PyTorch安装）"
-date: 2025-04-24 09:30:00 +0800
-categories: Docker Linux MLEnv
+title: "VS Code Codex 插件连接问题解决方案（Windows 版）"
+date: 2026-06-12 09:30:00 +0800
+categories: Other
 ---
 
-# Docker 容器迁移与环境重构教程
+# VS Code Codex 插件连接问题解决方案（Windows 版）
 
-命运多舛的实验环境搭建，防止下次服务器崩，遂写个page供自己参考（求求了不要崩了，这次搞了半个月！！！）
-本教程讲解如何将一个已经运行的WSL环境打包导出为镜像，并迁移至其他服务器重新部署，同时在目标环境中安装 CUDA 与 PyTorch，适用于 WSL->Linux 环境。
+适用于以下情况：
 
-流程总结：
-1. docker export [CONTAINER_ID] > .tar
-2. md5sum .tar > .md5
-3. scp 传输文件
-4. md5sum -c 校验
-5. docker import .tar
-6. docker run 创建新容器
-7. 安装 Miniconda
-8. 安装 PyTorch + CUDA
-9. 验证环境
+- 已在终端中成功配置 Codex
+- 已登录 ChatGPT/OpenAI 账号
+- 命令行中的 Codex 可以正常使用
+- Windows 已开启科学上网
+- VS Code 中出现：
+  - Reconnecting...
+  - Connection failed
+  - Request timeout
 
-## 一、容器导出：从运行中容器生成可迁移文件
+通常原因是 VS Code 未正确使用代理。
 
-### 1.1 查看正在运行的容器
+---
 
-```bash
-docker ps
+## 第一步：确认代理端口是否正常监听
+
+打开 CMD：
+
+```cmd
+netstat -ano | findstr 7891
 ```
 
-示例输出中找到目标容器的 CONTAINER ID，如：
+如果看到类似输出：
 
-```bash
-CONTAINER ID   IMAGE           ...   NAMES
-04700a37255e   zy-wsl-ubuntu   ...   gsy_mind
+```text
+TCP    127.0.0.1:7891    0.0.0.0:0    LISTENING
 ```
 
-### 1.2 导出容器为 .tar 文件
-该命令会将整个容器文件系统打包成可传输的归档文件。
+说明代理正常运行。
 
-```bash
-docker export 04700a37255e > zy-wsl-ubuntu.tar
+---
+
+## 第二步：测试代理能否访问 OpenAI
+
+打开 PowerShell：
+
+```powershell
+curl.exe -x http://127.0.0.1:7891 https://api.openai.com/v1/models
 ```
 
-### 1.3 校验打包文件完整性
+如果返回 JSON 数据或 OpenAI 错误信息：
 
-```bash
-md5sum zy-wsl-ubuntu.tar > zy-wsl-ubuntu.md5
+```json
+{
+  "error": {
+    ...
+  }
+}
 ```
 
-## 二、迁移镜像文件到目标服务器
-### 2.1 使用SCP将.tar文件复制至新服务器
+说明代理链路正常。
 
-```bash
-scp zy-wsl-ubuntu.tar user@remote_ip:/home/user/
-scp zy-wsl-ubuntu.md5 user@remote_ip:/home/user/
+如果超时或无法连接，则需要先检查代理软件配置。
+
+---
+
+## 第三步：配置 Windows 环境变量
+
+按：
+
+```text
+Win + R
 ```
 
-### 2.2 在目标服务器验证文件一致性
+输入：
 
-```bash
-md5sum -c zy-wsl-ubuntu.md5
+```text
+sysdm.cpl
 ```
 
-## 三、镜像导入与容器创建
-### 3.1 加载导出的 tar 文件为 Docker 镜像
+进入：
 
-```bash
-sudo docker import zy-wsl-ubuntu.tar zy-wsl-ubuntu:latest
+```text
+高级
+↓
+环境变量
 ```
 
-### 3.2 基于导入的镜像创建新的容器
-可根据需要添加其他端口或卷挂载
+新增以下用户变量：
 
-```bash
-sudo docker run -itd --privileged -p 10424:22 --name gsy_mind --gpus all -e NVIDIA_DRIVER_CAPABILITYES=compute,utility -e NVIDIA_VISIBLE_DEVICES=all zy-wsl-ubuntu:latest /bin/bash 
+### HTTP_PROXY
+
+变量名：
+
+```text
+HTTP_PROXY
 ```
 
-## 四、安装 CUDA、PyTorch 环境（容器内执行）
-### 4.1 进入容器
+变量值：
 
-```bash
-sudo docker exec -it gsy_mind /bin/bash
-```
-### 4.2 下载并执行miniconda安装脚本
-
-```bash
-apt update && apt install -y wget
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-
-//环境变量生效
-source ~/.bashrc 
-
-//检查conda是否安装成功
-conda --version
+```text
+http://127.0.0.1:7891
 ```
 
-### 4.3 创建新的conda环境
+### HTTPS_PROXY
 
-```bash
-conda create -n mind_env python=3.9 -y
-conda activate mind_env
+变量名：
+
+```text
+HTTPS_PROXY
 ```
 
-### 4.4 安装 PyTorch 和 CUDA 支持
+变量值：
 
-```bash
-conda install pytorch torchvision pytorch-cuda=12.4 -c pytorch -c nvidia
+```text
+http://127.0.0.1:7891
 ```
 
-### 验证 PyTorch 和 GPU 正常使用
-启动 Python 交互环境测试：
+### ALL_PROXY
 
-```bash
-python
-```
-输入以下命令：
+变量名：
 
-```bash
-import torch
-print(torch.__version__)
-print(torch.cuda.is_available())
-print(torch.cuda.get_device_name(0))
+```text
+ALL_PROXY
 ```
 
+变量值：
 
-【注意：】zyg的容器中，可以直接使用/home/zy/miniconda3/envs/pencil路径下环境，不再需要创建新的环境。
-
-```bash
-conda activate /home/zy/miniconda3/envs/pencil/
+```text
+http://127.0.0.1:7891
 ```
 
-代码自带的容器端口号需要修改为本服务器的容器端口号！
+保存后重新打开 CMD。
 
-```bash
-//查看SSH配置文件位置
-cd /etc/ssh/   
-ls
+验证：
 
-//修改SSHServer配置，指定新端口号、运行root登录
-vi /etc/ssh/sshd_config
-
-//重启SSH服务配置生效
-service ssh restart
-
-//验证是否在监听
-netstat -tunpl
+```cmd
+echo %HTTP_PROXY%
 ```
+
+应输出：
+
+```text
+http://127.0.0.1:7891
+```
+
+---
+
+## 第四步：配置 VS Code 代理
+
+打开 VS Code：
+
+```text
+Ctrl + ,
+```
+
+搜索：
+
+```text
+proxy
+```
+
+修改以下配置：
+
+### Http: Proxy
+
+```text
+http://127.0.0.1:7891
+```
+
+### Http: Proxy Support
+
+```text
+on
+```
+
+### Http: System Certificates
+
+```text
+√ 勾选
+```
+
+### Http: Proxy Strict SSL
+
+如果连接失败：
+
+```text
+取消勾选
+```
+
+---
+
+## 第五步：直接修改 settings.json（推荐）
+
+按：
+
+```text
+Ctrl + Shift + P
+```
+
+输入：
+
+```text
+Preferences: Open User Settings (JSON)
+```
+
+添加：
+
+```json
+{
+    "http.proxy": "http://127.0.0.1:7891",
+    "http.proxySupport": "on",
+    "http.systemCertificates": true,
+    "http.proxyStrictSSL": false
+}
+```
+
+保存。
+
+---
+
+## 第六步：检查代理软件设置
+
+如果使用：
+
+- Clash Verge
+- Clash for Windows
+- Mihomo
+- V2RayN
+
+建议开启：
+
+```text
+TUN Mode
+```
+
+或者：
+
+```text
+System Proxy
+```
+
+至少开启其中一个。
+
+很多情况下浏览器能正常访问网络，但 VS Code 无法连接 OpenAI，就是因为代理没有接管 VS Code 的网络请求。
+
+---
+
+## 第七步：完全重启 VS Code
+
+不要仅执行 Reload Window。
+
+打开任务管理器：
+
+```text
+Ctrl + Shift + Esc
+```
+
+结束所有：
+
+```text
+Code.exe
+```
+
+然后重新启动 VS Code。
+
+---
+
+## 第八步：查看日志排查问题
+
+打开：
+
+```text
+View
+↓
+Output
+```
+
+在右上角选择：
+
+```text
+OpenAI
+```
+
+或者：
+
+```text
+Codex
+```
+
+查看具体报错信息。
+
+---
+
+## 常见错误说明
+
+### ECONNREFUSED
+
+```text
+connect ECONNREFUSED 127.0.0.1:7891
+```
+
+原因：
+
+```text
+代理未启动
+```
+
+---
+
+### ETIMEDOUT
+
+```text
+Request timeout
+```
+
+原因：
+
+```text
+代理规则未正确代理 OpenAI
+```
+
+检查规则是否让以下域名走代理：
+
+```text
+api.openai.com
+chatgpt.com
+```
+
+---
+
+### SSL 证书错误
+
+```text
+certificate verify failed
+```
+
+可尝试关闭 SSL 严格校验：
+
+```json
+"http.proxyStrictSSL": false
+```
+
+---
+
+## 快速验证命令
+
+查看代理变量：
+
+```cmd
+echo %HTTP_PROXY%
+echo %HTTPS_PROXY%
+```
+
+测试 OpenAI 连通性：
+
+```powershell
+curl.exe -x http://127.0.0.1:7891 https://api.openai.com/v1/models
+```
+
+检查代理端口：
+
+```cmd
+netstat -ano | findstr 7891
+```
+
+---
+
+## 推荐最终配置
+
+VS Code `settings.json`：
+
+```json
+{
+    "http.proxy": "http://127.0.0.1:7891",
+    "http.proxySupport": "on",
+    "http.systemCertificates": true,
+    "http.proxyStrictSSL": false
+}
+```
+
+完成后按以下顺序执行：
+
+1. 启动 Clash/V2RayN 等代理软件
+2. 开启 System Proxy 或 TUN Mode
+3. 完全退出 VS Code
+4. 重新打开 VS Code
+5. 测试 Codex 对话功能
+
+一般情况下，完成上述配置后即可解决 VS Code 中 Codex 插件的连接问题。
