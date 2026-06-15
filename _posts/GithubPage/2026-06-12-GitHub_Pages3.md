@@ -388,3 +388,7 @@ VS Code `settings.json`：
 5. 测试 Codex 对话功能
 
 一般情况下，完成上述配置后即可解决 VS Code 中 Codex 插件的连接问题。
+
+---
+
+继续阅读第二步：[2026-6-15-GitHub_Pages4](/posts/GitHub_Pages4/)
